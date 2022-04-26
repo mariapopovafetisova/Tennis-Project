@@ -1,0 +1,43 @@
+﻿@model Tennis.Models.MatchDetails
+@{
+    ViewData["Title"] = "Information";
+}
+<head>
+    <link rel="stylesheet" href="~/css/MatchDetails.css" />
+</head>
+<body>
+<form method="post">
+<div class="box-center">
+    <h4>Enter match details</h4>
+    <div class="inside-container">
+        <div class="form-group col-12">
+            <input asp-for="yourPlayer" class="form-control"  placeholder="First Player"/>
+            <span asp-validation-for="yourPlayer" class="text-danger"></span>
+        </div>
+        <div class="form-group col-12">
+            <input asp-for="opponentPlayer" class="form-control"   placeholder="Second Player" />
+            <span asp-validation-for="opponentPlayer" class="text-danger"></span>
+        </div>
+        <div class="form-group col-12">
+            <input asp-for="Event" class="form-control" placeholder="Event"  />
+
+        </div>
+        <div class="form-group col-12">
+            <input asp-for="date" class="form-control"value="Date"  placeholder="Date Player" />
+
+        </div>
+    </div>
+    <br />
+    
+        <div class="form-group col-13">
+
+               <button type="submit" class="btn btn-primary" style="width:150px">Enter</button>
+            
+    </div>
+    
+</div>
+</form>
+</body>
+  @section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<head>
+    <link rel="stylesheet" href="~/css/Index.css" />
+    
+</head>
+
+
+
+<body>
+    <div class="bouncing ball">
+    <div class="text">
+        <h1 class="display-4">About</h1>
+        <p>
+            <span>TA</span> helps you track and analyze your tennis matches. With only one click you will be able to report every necessary error while also keep track of the score.
+            The best part? You will be able to view the match's summary with percentages, statistics and count of every error.
+        </p>
+        <div class="button">
+            <a asp-controller="Index" asp-action="MatchDetails" class="btn btn-primary" style="width:200px">Get started</a>
+        </div>
+    </div>
+   </div>
+</body>

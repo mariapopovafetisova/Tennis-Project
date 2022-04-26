@@ -1,0 +1,179 @@
+﻿
+@{
+    
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/Report.css" asp-append-version="true" />
+    
+</head>
+
+<div id="name">
+    <div id="firstPlayer"><div class="color" id="blue"><p style="width:500px">@ViewBag.FP</p></div></div>
+    <div id="secondPlayer"><div class="color" id="green"><p style="width:500px">@ViewBag.sP</p></div></div>
+</div>
+<div style="width: 100%; height: 500px;">
+    
+    <table id="bar-graph">
+        <caption>First Serve</caption>
+
+        <tbody>
+            <tr class="section-1">
+
+                <td class="before bar"style="height:@ViewBag.percfs%"><p>@ViewBag.percfs%</p></td>
+                <td class="after bar"style="height:@ViewBag.percfsOP%"><p>@ViewBag.percfsOP%</p></td>
+            </tr>
+
+        </tbody>
+
+    </table>
+    <div id="bar-ticks">
+        <div class="tick"></div>
+        <div class="tick"></div>
+        <div class="tick"></div>
+        <div class="tick"></div>
+        <div class="tick"></div>
+        <div class="tick"></div>
+    </div>
+ 
+    <table id="bar-graph-2" style="float:left">
+        <caption>Second Serve</caption>
+
+        <tbody>
+            <tr class="section-1">
+
+                <td class="before bar" style="height:@ViewBag.percss%"><p>@ViewBag.percss%</p></td>
+                <td class="after bar" style="height:@ViewBag.percssOP%"><p>@ViewBag.percssOP%</p></td>
+            </tr>
+
+        </tbody>
+    </table>
+    
+</div>
+<div class="fsstats">
+    <div class="serve-stat" ><p style="width:200px">Made: @ViewBag.fsIN   W:@ViewBag.fw B:@ViewBag.fb T:@ViewBag.ft</p></div>
+     <div class="serve-stat"><p style="width:200px">Missed: @ViewBag.fsOUT</p></div>
+      <div class="serve-stat"><p style="width:200px">  Double faults: @ViewBag.doublefaults</p></div>
+</div>
+<div class="ssstats" style="margin-left:-80px">
+    <div class="serve-stat" ><p style="width:200px">Made: @ViewBag.ssIN    W:@ViewBag.sw B:@ViewBag.sb T:@ViewBag.st</p></div>
+     <div class="serve-stat"><p style="width:200px">Missed: @ViewBag.ssOUT</p></div>
+</div>
+ 
+<div id="Winner" style="text-align:center; margin-top:7rem;height: 300px; width: 100%;">
+    <p>Winners</p>
+    <div class="desc">Total<p style="padding-right:20px"><a href="javascript:void(0);" class="modalpopup" data-id=1>@ViewBag.totalwinner</a></p></div>
+        <div id="mymodal" class="modal">  
+                <button type="button" class="btn-close" data-dismiss="modal" aria-hidden="true" >×</button>
+                <div class="modal-dialog">    
+                    <div class="myModalContent">
+        
+                    </div> 
+                </div>   
+            </div>  
+    <div class="pie animate no-round" style="--p:@ViewBag.winner;--c:lightblue;"> @ViewBag.winner%</div>
+    <div class="pie animate no-round" style="--p:@ViewBag.winnerOP;--c:lightgreen;"> @ViewBag.winnerOP%</div>
+    <div class="desc">Total<p style="padding-right:20px"">@ViewBag.totalwinnerOP</p></div>  
+           
+</div>
+
+ 
+<div id="UnforcedError" style="text-align:center; margin-top:4rem;height: 300px; width: 100%;">
+    <p>Unforced Errors</p>
+    <div class="desc">Total<p style="padding-right:20px"><a href="javascript:void(0);" class="modalpopup" data-id=2>@ViewBag.totalue</a></p></div>
+        <div id="mymodal2" class="modal">  
+                <button type="button" class="btn-close" data-dismiss="modal" aria-hidden="true" >×</button>
+                <div class="modal-dialog">    
+                    <div class="myModalContent">
+        
+                    </div> 
+                </div>   
+            </div>  
+    <div class="pie animate no-round" style="--p:@ViewBag.ue;--c:lightblue;"> @ViewBag.ue%</div>
+    <div class="pie animate no-round" style="--p:@ViewBag.ueOP;--c:lightgreen;"> @ViewBag.ueOP%</div>
+    <div class="desc">Total<p style="padding-right:20px"">@ViewBag.totalueOP</p></div>  
+</div>
+
+<div id="NetError" style="text-align: center; margin-top: 4rem;height: 300px; width: 100%; "> 
+    <p>Net Errors</p>
+    <div class="desc">Total<p style="padding-right:20px">@ViewBag.NetError</p></div>
+    <div class="pie animate no-round" style="--p:@ViewBag.percne;--c:lightblue;"> @ViewBag.percne%</div>
+    <div class="pie animate no-round" style="--p:@ViewBag.percneop;--c:lightgreen;"> @ViewBag.percneop%</div>
+    <div class="desc">Total<p style="padding-right:20px">@ViewBag.NetErrorOP</p></div> 
+</div>
+<table id="extra">
+    <tr>
+        <td rowspan="2" style="background-color: #ddd; border-color:#ddd"></td>
+        <th colspan="2" scope="colgroup" style="text-align: center; border-width:1px 10px 1px 1.5px;">Serve +1</th>
+        <th colspan="2" scope="colgroup" style="text-align: center; border-width: 1px 1px 1px 10px;">Return +1</th>
+    </tr>
+    <tr>
+        <th scope="col" style="background:#ddd; width:20%">Winner</th>
+        <th scope="col" style="border-width: 0px 0px 0px 2px; background: #ddd; border-color:lightblue;">Error</th>
+        <th scope="col" style="border-width: 1px 1px 1px 10px; background: #ddd;width:20%">Winner</th>
+        <th scope="col" style="border-width: 0px 0px 0px 2px; background:#ddd; border-color:lightblue;">Error</th>
+    </tr>
+    <tr>
+        <th scope="row" style="border-width: 1.5px 1px 1px 1px; background: #ddd">Forehand</th>
+        <td>@ViewBag.spowf</td>
+        <td style="border-width: 1px 10px 1px 1px;">@ViewBag.spoef</td>
+        <td style="border-width: 1px 1px 1px 10px;">@ViewBag.rpowf</td>
+        <td>@ViewBag.rpoef</td>
+    </tr>
+    <tr>
+        <th scope="row" style="background: #ddd">Backhand</th>
+        <td>@ViewBag.spowb</td>
+        <td style="border-width: 1px 10px 1px 1px;">@ViewBag.spoeb</td>
+        <td style="border-width: 1px 1px 1px 10px;">@ViewBag.rpowb</td>
+        <td>@ViewBag.rpoeb</td>
+    </tr>
+</table>
+
+
+
+        
+
+@section Scripts{
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+
+    <script>
+   
+      $(function () { 
+    
+        $(".modalpopup").click(function () {  
+           
+            var $buttonClicked = $(this);  
+            var id = $buttonClicked.attr('data-id');  
+            var options = { "backdrop": "static", keyboard: true };  
+            $.ajax({  
+                type: "GET",  
+                url: '/Index/Report',  
+                contentType: "application/json; charset=utf-8",  
+                data: { "Id": id },  
+                datatype: "json",  
+                success: function (data) {  
+                     
+                    $('.myModalContent').html(data);  
+                    $('#mymodal').modal(options);  
+                    $('#mymodal').modal('show');                    
+                         
+                    $('.myModalContent').html(data);  
+                    $('#mymodal2').modal(options);  
+                    $('#mymodal2').modal('show');  
+      
+                },  
+                error: function () {  
+                    alert("Dynamic content load failed.");  
+                }  
+            });  
+        }); 
+        $(".btn-close").click(function(){
+             $('#mymodal').modal('hide');
+             $('#mymodal2').modal('hide');
+        });
+       });
+       
+     </script>
+}

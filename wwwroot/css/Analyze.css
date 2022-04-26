@@ -1,0 +1,207 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@200;300;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Faster+One&display=swap');
+
+html, body {
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    font-family: 'Heebo', sans-serif;
+}
+.nav-link, .navbar-dark .navbar-nav .nav-link.active {
+    font-family: 'Heebo', sans-serif;
+    font-weight: 700;
+    font-size: 28px;
+    color: black;
+    text-decoration: none;
+}
+button {
+    font-family: 'Heebo', sans-serif;
+    font-weight: 700;
+    font-size: 28px;
+    color: black;
+    
+}
+.next {
+    -webkit-transform: rotate(135deg);
+    margin: 100px 20px;
+    width: 10px;
+    height: 10px;
+    float: left;
+}
+
+.prev {
+    -webkit-transform: rotate(315deg);
+    margin: 100px 20px;
+    width: 10px;
+    height: 10px;
+    float: left;
+}
+
+.next:after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    background: white;
+    position: absolute;
+    left: 3px;
+    top: 3px;
+}
+
+.prev:after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    background: white;
+    position: absolute;
+    left: 3px;
+    top: 3px;
+}
+
+.nav {
+    width: 110%;
+}
+
+    .nav:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+.blue {
+    background: rgb(109, 158, 235);
+}
+
+.sidebutton-left button {
+    position: fixed; /* Position them relative to the browser window */
+    left: -80px; /* Position them outside of the screen */
+    transition: 0.3s; /* Add transition on hover */
+    padding: 15px; /* 15px padding */
+    width: 100px; /* Set a specific width */
+    text-decoration: none; /* Remove underline */
+    font-size: 20px; /* Increase font size */
+    color: white; /* White text color */
+    top: 120px;
+    border-radius: 0 5px 5px 0;
+    text-align: left;
+    z-index: 1000;
+}
+
+    .sidebutton-left button:hover {
+        z-index: 1000;
+        left: 0; /* On mouse-over, make the elements appear as they should */
+    }
+
+.sidebutton-right button {
+    position: fixed; /* Position them relative to the browser window */
+    right: -80px; /* Position them outside of the screen */
+    transition: 0.3s; /* Add transition on hover */
+    padding: 15px; /* 15px padding */
+    width: 100px; /* Set a specific width */
+    text-decoration: none; /* Remove underline */
+    font-size: 20px; /* Increase font size */
+    color: white; /* White text color */
+    top: 120px;
+    border-radius: 5px 0px 0px 5px;
+    text-align: right;
+    z-index: 1000;
+}
+
+    .sidebutton-right button:hover {
+        right: 0; /* On mouse-over, make the elements appear as they should */
+    }
+
+/* The about link: 20px from the top with a green background */
+.btn-primary {
+    top: 20px;
+    background-color: #2196f3;
+}
+
+
+.PlayerName {
+    margin-top: 4rem;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.Name {
+    float: left;
+    width: 50%;
+    text-align: center;
+}
+
+.point {
+    float: left;
+    text-align: center;
+    width: 50%;
+    font-size: 72px;
+}
+
+.points {
+    height: 200px;
+    font-weight: 700;
+}
+
+.games {
+    height: 80px;
+    text-align: center;
+    font-size: 35px;
+    font-family: 'Faster One', cursive;
+}
+
+.gamectn {
+    width: 10%;
+    height: 50px;
+    margin: auto;
+}
+
+.game {
+    float: left;
+    width: 45%;
+}
+
+p {
+    width: 10%;
+    float: left;
+    font-family: 'Heebo', sans-serif;
+}
+
+.Gnumctn {
+    width: inherit;
+    margin: 0;
+}
+
+
+.setctn {
+    width: 10%;
+    height: 50px;
+    margin: auto;
+}
+
+.sets {
+    text-align: center;
+    clear: both;
+    height: 80px;
+    font-size: 28px;
+    font-family: 'Faster One', cursive;
+}
+
+.set {
+    float: left;
+    width: 45%;
+}
+
+.setOP {
+    float: right;
+    width: 45%;
+}
+
+.Snumctn {
+    width: inherit;
+    margin: 0;
+    float: right;
+}
+
+.main-container {
+    height: 600px;
+    width: 100%
+}

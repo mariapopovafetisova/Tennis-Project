@@ -1,0 +1,882 @@
+﻿@model Tennis.Models.ListError
+
+@{   ViewData["Title"] = "Analyze";
+  
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/Analyze.css" asp-append-version="true" />
+
+</head>
+<div class="bg">
+    <div class="button" style="display:none; width:200px; margin:4rem auto;">
+    
+    <button type="submit" class="btn btn-primary" name="matchend" style="width:200px" onclick='window.location = "@Url.Action("Report", "Index")"'>Match Ended</button>
+
+</div>
+<div class="sidebutton-left" >
+  <button class="btn-primary" value="firstPlayer">Point for Player</button>
+</div>
+<div class="sidebutton-right" >
+  <button class="btn-primary" value="secondPlayer">Point for Player</button>
+</div>
+<div class="nav" style="width:115%">
+  <marquee direction="alternate" scrolldown="30" style="width:80px; margin-left: -53px;"><div class="prev blue"></div></marquee><p style="padding-top: 90px;
+    padding-left: 5px; width:150px">Click for point</p>
+  <div style="width:59.5%"></div>
+ <p  style="padding-top: 90px; padding-left: 5px; width:150px">Click for point</p><marquee direction="right" style="width:80px;"><div class="next blue"></div></marquee>
+</div>
+
+         <div class="scoring" style="width:100%">
+                 
+            <div class="PlayerName" style="height:40px">          
+                <div class="Name">@ViewBag.FP</div>
+                <div class="Name">@ViewBag.SP</div>
+            </div>
+            <div class="points" style="height:40px">
+                <div class="point" id="score">0</div>
+                <div class="point" id="scoreOP">0</div>
+             </div>
+             <div class="games">GAMES
+                <div class="gamectn" >
+                    <div class="game"><p class="Gnumctn" style="float:right;">0</p></div>
+                        <p>-</p>
+                    <div class="game"><p class="Gnumctn-2" style="padding-left:4px">0</p></div>
+                </div>
+             </div>
+             <div class="sets">SETS
+                 <div class="setctn">
+                    <div class="set"><p class="Snumctn" style="float:right;">0</p></div>
+                        <p>-</p>
+                    <div class="setOP"><p class="Snumctn-2" style="padding-left:4px">0</p></div>
+                </div>
+            </div>
+        </div>
+
+       <div class="main-container">
+ 
+        <div class="firstplayer" style="width:50%; float:left;margin-top:3rem">
+
+            <table class="serve"style="width:85%; margin:4.5rem auto; height:20%">
+
+                <tr>
+                    <th>First Serve</th>
+                    <th>   Area       </th>
+                    <th>Second Serve</th>
+
+                </tr>
+                <tr>
+
+
+                    <td>
+                        <div id="serve" class= "form-horizontal-serve"  style="display:@ViewBag.Block;"> 
+                            @foreach (var item in Model.fServe)
+                            {
+                                <input 
+                                 class="cb"
+                                 name="fServe"
+                                 type="checkbox"
+                                 value="@item.Value" 
+                                 checked="@item.IsChecked"
+                                 onclick="Validate(name)"> 
+                                <label for="@item.Value"> @item.Text </label>
+                                <br/>
+                          
+
+                            }
+
+                            </div>
+                            </td>
+                       <td>
+                            <div class="form-horizontal-serve" style="display:@ViewBag.Block; ">
+                            @foreach (var item in Model.ServeWBT)
+                            {
+                                <input class="cb"
+                                 name="WBT"
+                                 type="checkbox"
+                                 value="@item.Value" 
+                                 checked="@item.IsChecked"
+                                 onclick="Validate(name)">
+                                <label for="@item.Value"> @item.Text </label>
+                                <br/>
+                            }
+                            </div>
+                    </td>
+                    <td>
+                        <div class="form-horizontal-serve" style="display:@ViewBag.Block;"> 
+                            @foreach (var item in Model.sServe)
+                            {
+                                <input class="cb"
+                               name="sServe"
+                               type="checkbox"
+                               value="@item.Value" 
+                               checked="@item.IsChecked"
+                               onclick="Validate(name)">
+                                <label for="@item.Value"> @item.Text </label><br />
+                            }
+                        </div>
+                    </td>
+                       
+                    </tr>
+                    </table>
+               <table class="servePlusOne" style="width:85%; margin:auto">
+                <tr >
+                    <th>Serve +1</th>
+                   
+                    <th>Return +1</th>
+                </tr>
+                <tr>
+
+                    <td style="width:50%">
+                        <div class="form-horizontal-spo" style="display:@ViewBag.Block; width:100%" > 
+                            @foreach (var item in Model.ServeplusOneWEFB)
+                            {
+                                <input class="cb"
+                                 name="sPO"
+                                 type="checkbox"
+                                 value="@item.Value" 
+                                checked="@item.IsChecked"
+                                onclick="Validate(name)">
+                                <label for="@item.Value"> @item.Text </label>
+                                <br/>
+
+                            }
+                        </div>
+                    </td>
+                    
+                    <td style="width:50%">
+                        <div class="form-horizontal-rpo" style="display:@ViewBag.None; width:100%"> 
+                            @foreach (var item in Model.ReturnplusOneWEFB)
+                            {
+                                <input class="cb"
+                               name="rPO"
+                               type="checkbox"
+                               value="@item.Value" 
+                               checked="@item.IsChecked"
+                               onclick="Validate(name)">
+                                <label for="@item.Value"> @item.Text </label><br />
+                            }
+                        </div>
+                    </td>
+
+                </tr>
+
+            </table>
+             <table class="wuE" style="width:85%; margin:3rem auto;">
+
+                <tr>
+                    <th colspan="2">Winner</th>
+                    <th colspan="2">Unforced Error</th>
+                </tr>
+                <tr style="width:100%">
+                    <td style="width:21%">
+                        <div class="form-horizontal"> 
+                            @foreach (var item in Model.WinnerFBH)
+                            {
+                                if (item.Value < 18)
+                                {
+                                    <input class="cb"
+                                     name="Winner"
+                                     type="checkbox"
+                                     value="@item.Value" 
+                                     checked="@item.IsChecked"
+                                     onclick="Validate(name)">
+                                    <label for="@item.Value"> @item.Text </label>
+                                    <br/>
+
+                                }
+                            }
+                        </div>
+                    </td>
+
+
+                    <td style="width:21.5%">
+                        <div class="form-horizontal-winner" style="display:none;" > 
+                            @foreach (var item in Model.WinnerFBH)
+                            {
+                                if (item.Value >= 18)
+                                {
+                                    <input class="cb"
+                                     name="winnerA"
+                                     type="checkbox"
+                                     value="@item.Value" 
+                                     checked="@item.IsChecked"
+                                     onclick="Validate(name)">
+                                    <label for="@item.Value"> @item.Text </label> <br />
+                                }
+                            }
+                        </div>
+                    </td>
+
+                    <td style="width:21%">
+                        <div class="form-horizontal"> 
+                            @foreach (var item in Model.UEFB)
+                            {
+                                if (item.Value < 23)
+                                {
+                                    <input class="cb"
+                                    name="uE"
+                                    type="checkbox"
+                                    value="@item.Value" 
+                                    checked="@item.IsChecked"
+                                    onclick="Validate(name)">
+                                    <label for="@item.Value"> @item.Text </label><br />
+                                }
+
+                            }
+
+                        </div>
+                    </td>
+                    <td style="width:21.5%">
+                        <div class="form-horizontal-error" style="display:none;"> 
+                            @foreach (var item in Model.UEFB)
+                            {
+                                if (item.Value >= 23)
+                                {
+                                    <input class="cb"
+                                    name="uEA"
+                                    type="checkbox"
+                                    value="@item.Value" 
+                                    checked="@item.IsChecked"
+                                    onclick="Validate(name)">
+                                    <label for="@item.Value"> @item.Text </label><br />
+                                }
+
+                            }
+                        </div>
+                        <div class="netError" style="display:none;">
+                            @foreach (var item in Model.NetError)
+                            {
+
+                                <input class="cb"
+                                name="NetError"
+                                type="checkbox"
+                                value="@item.Value" 
+                                checked="@item.IsChecked"
+                                onclick="Validate(name)">
+                                <label for="@item.Value"> @item.Text </label><br />
+                            }
+                        </div>
+
+                    </td>
+                </tr>
+            </table>
+            
+        </div>       
+        
+
+        <div class="secondplayer" style="float:left; width:50%; margin-top:3rem">
+            <table class="serveOP" style="width:75%; float: right; margin-top: 4.5rem;">
+
+                <tr>
+
+                    <th>First serve</th>
+                    <th>Second Serve</th>
+                </tr>
+                <tr>
+
+                    <td>
+                        <div class="form-horizontal-opponent-serve" style="display:@ViewBag.None;"> 
+                            @foreach (var item in Model.opfServe)
+                            {
+                                <input class="cbOp"
+                               name="fServeOP"
+                               type="checkbox"
+                               value="@item.Value" 
+                               checked="@item.IsChecked"
+                               onclick="Validate(name)"
+                               >
+                                <label for="@item.Value"> @item.Text </label><br />
+                            }
+                        </div>
+                    </td>
+
+                    <td>
+                        <div class="form-horizontal-opponent-serve" style="display:@ViewBag.None;"> 
+                            @foreach (var item in Model.opsServe)
+                            {
+                                <input class="cbOp"
+                               name="sServeOP"
+                               type="checkbox"
+                               value="@item.Value" 
+                               checked="@item.IsChecked"
+                               onclick="Validate(name)">
+                                <label for="@item.Value"> @item.Text </label><br />
+                            }
+                        </div>
+                    </td>
+            </table>
+             
+            <table class="wuEOP"  style="width:75%; float: right; margin-top: 3rem;">
+
+                <tr>
+                    <th >Winner</th>
+                    <th>Unforced Error</th>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-horizontal-opponent" > 
+                            @foreach (var item in Model.opWinner)
+                            {
+                                <input class="cbOp"
+                               name="WinnerOP"
+                               type="checkbox"
+                               value="@item.Value" 
+                               checked="@item.IsChecked"
+                               onclick="Validate(name)">
+                                <label for="@item.Value"> @item.Text </label><br />
+
+                            }
+
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-horizontal-opponent" > 
+                            @foreach (var item in Model.opUE)
+                            {
+                                <input class="cbOp"
+                               name="uEOP"
+                               type="checkbox"
+                               value="@item.Value" 
+                               checked="@item.IsChecked"
+                               onclick="Validate(name)">
+                                <label for="@item.Value"> @item.Text </label><br />
+
+                            }
+
+                        </div>
+                        <div class="form-horizontal-opponent">
+                            @foreach (var item in Model.NetError)
+                            {
+
+                                <input class="NE"
+                                name="NetErrorOP"
+                                type="checkbox"
+                                value="@item.Value" 
+                                checked="@item.IsChecked"
+                                onclick="Validate(name)">
+                                <label for="@item.Value"> @item.Text </label><br />
+                            }
+                        </div>
+                    </td>
+             </table>
+       
+    </div>
+   
+</div>  
+  
+
+</div>
+@section Scripts{
+    <script src="~/lib/jquery/dist/jquery.min.js"></script> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<script type="text/javascript">
+    
+//Toggle areas on click for winner and unforced error
+   $("input[name='Winner']").click(function() {
+        $(".form-horizontal-winner").hide();
+        $(".form-horizontal-winner").toggle("slow");
+      
+
+    })
+    $(`input[name='uE']`).click(function() {
+        $(".form-horizontal-error").hide();
+        $(".netError").hide();
+        $(".form-horizontal-error").toggle("slow");
+        $(".netError").toggle("slow");
+      
+
+    })
+    
+   $(".btn-primary").click(function(){
+
+       $(".nav").hide();
+   })
+    
+//Allow to only check one box
+function Validate(name){
+          $(`input[name="${name}"]`).click(function() {
+       $(`input[name="${name}"]`).not(this).prop('checked', false);
+     })
+   }
+
+    
+    
+    
+
+ var pCounter=0;
+ var p2Counter=0;
+ var gCounter=0;
+ var g2Counter=0;
+ var sCounter=0;
+ var s2Counter=0;
+ var tieBreak=0;
+ var tieBreakOP=0;
+ var points=[0,15,30,40];
+ 
+ 
+ 
+
+
+ $(".btn-primary").click(function(){
+    let btnValue= $(this).val();
+
+var point;
+var pointOP;
+var game;
+var games;
+var gameOP;
+var set;
+var setOP;
+
+    if(btnValue=="firstPlayer"){
+    
+
+        pCounter++;
+        point=points[pCounter];
+        game=gCounter;
+        set=sCounter;
+        games=0;
+        if(gCounter==6&&g2Counter==6){
+            tieBreak++;
+            point=tieBreak;
+            pCounter=0;
+            games=0;
+            
+
+            if((tieBreak==7&&tieBreakOP<6)||(tieBreakOP>6&&tieBreak==tieBreakOP+2)){
+                      gCounter++;
+                      sCounter++;
+                      gCounter=0;
+                      g2Counter=0;
+                      game=gCounter;
+                      gameOP=g2Counter;
+                      set=sCounter;
+                      tieBreak=0;
+                      point=tieBreak;
+                      tieBreakOP=0;
+                      pointOP=tieBreakOP;
+                      pCounter=0;
+                      p2Counter=0;
+                      games=1;
+              }
+
+        
+        };
+
+       
+        
+        if(pCounter==4){
+              pCounter=0;
+              p2Counter=0;
+              pointOP=0;
+              point=0;
+              gCounter++;
+              game=gCounter;
+              games=1;
+         
+        }else if(gCounter==6&&g2Counter<5){
+                   sCounter++;
+                   set=sCounter;
+                   gCounter=0;
+                   g2Counter=0;
+                   game=gCounter;
+                   gameOP=g2Counter;
+        
+        }else if(gCounter==7&&g2Counter==5){
+                   sCounter++;
+                   set=sCounter;
+                   gCounter=0;
+                   g2Counter=0;
+                   game=gCounter;
+                   gameOP=g2Counter;
+          
+                 
+        }
+        
+    
+ }else if(btnValue=="secondPlayer"){
+        
+        p2Counter++;
+        pointOP=points[p2Counter];
+        gameOP=g2Counter;
+        setOP=s2Counter;
+        games=0;
+        if(g2Counter==6&&gCounter==6){
+            tieBreakOP++;
+            pointOP=tieBreakOP;
+            p2Counter=0;
+            games=0;
+            
+            if((tieBreakOP==7&&tieBreak<6)||(tieBreak>6&&tieBreakOP==tieBreak+2)){
+                      g2Counter++;
+                      s2Counter++;
+                      gCounter=0;
+                      g2Counter=0;
+                      gameOP=g2Counter;
+                      game=gCounter;
+                      setOP=s2Counter;
+                      tieBreak=0;
+                      point=tieBreak;
+                      tieBreakOP=0;
+                      pointOP=tieBreakOP;
+                      pCounter=0;
+                      p2Counter=0;
+                      games=1;
+
+              }
+        
+        };
+        
+        if(p2Counter==4){
+              pCounter=0;
+              p2Counter=0;
+              pointOP=0;
+              point=0;
+              g2Counter++;
+              gameOP=g2Counter;
+              games=1;
+         
+        }else if(g2Counter==6&&gCounter<5){
+                   s2Counter++;
+                   seOP=s2Counter;
+                   gCounter=0;
+                   g2Counter=0;
+                   game=gCounter;
+                   gameOP=g2Counter;
+        
+        }else if(gCounter==7&&g2Counter==5){
+                   s2Counter++;
+                   setop=s2Counter;
+                   gCounter=0;
+                   g2Counter=0;
+                   game=gCounter;
+                   gameOP=g2Counter;
+          
+                 
+        }
+}
+
+
+
+    
+    
+  //your player
+  
+     let fServe;
+     let WBT;
+     let sServe;
+     let sPO;
+     let rPO;
+     let Winner;
+     let winnerA;
+     let unforcedError;
+     let unforcedErrorA;
+     let netError;
+
+     var lenCBS=$("input[name='fServe']:checked").length;
+     var lenCBSS=$("input[name='sServe']:checked").length;
+     var lenCBSA= $("input[name='WBT']:checked").length;
+     var lenCBSPO= $("input[name='sPO']:checked").length;
+     var lenCBRPO= $("input[name='rPO']:checked").length;
+     var lenCBWUE= $("input[name='Winner']:checked").length;
+     var lenCBWA= $("input[name='winnerA']:checked").length;
+     var lenCBUE= $("input[name='uE']:checked").length;   
+     var lenCBUEA= $("input[name='uEA']:checked").length;   
+      
+       
+     $("input[name='fServe']:checked").each(function(){
+
+         if(lenCBS> 0){
+                
+           let value = $(this).val();
+           let checkboxText = $(`label[for="${value}"]`).text();
+           console.log(`${checkboxText}`);
+           fServe=checkboxText;
+           lenCBS--;
+    
+         };
+              
+     });
+      
+      $("input[name='sServe']:checked").each(function(){
+            
+          if(lenCBSS> 0){
+            
+            let value = $(this).val();
+            let checkboxText = $(`label[for="${value}"]`).text();
+            console.log(`${checkboxText}`);
+            sServe=checkboxText;  
+            lenCBSS--;
+               
+          };
+      });
+        $("input[name='WBT']:checked").each(function(){
+            
+          if(lenCBSA> 0){
+            
+            let value = $(this).val();
+            let checkboxText = $(`label[for="${value}"]`).text();
+            console.log(`${checkboxText}`);
+            WBT=checkboxText;  
+            lenCBSA--;
+               
+          };
+      });
+       $("input[name='sPO']:checked").each(function(){
+            
+          if(lenCBSPO> 0){
+            
+            let value = $(this).val();
+            let checkboxText = $(`label[for="${value}"]`).text();
+            console.log(`${checkboxText}`);
+            sPO=checkboxText;  
+            lenCBSPO--;
+               
+          };
+      });
+        $("input[name='rPO']:checked").each(function(){
+            
+          if(lenCBRPO> 0){
+            
+            let value = $(this).val();
+            let checkboxText = $(`label[for="${value}"]`).text();
+            console.log(`${checkboxText}`);
+            rPO=checkboxText;  
+            lenCBRPO--;
+               
+          };
+      });
+        $("input[name='Winner']:checked").each(function(){
+            
+          if(lenCBWUE> 0){
+            
+            let value = $(this).val();
+            let checkboxText = $(`label[for="${value}"]`).text();
+            console.log(`${checkboxText}`);
+            Winner=checkboxText;  
+            lenCBWUE--;
+               
+          };
+      });
+        $("input[name='winnerA']:checked").each(function(){
+            
+          if(lenCBWA> 0){
+            
+            let value = $(this).val();
+            let checkboxText = $(`label[for="${value}"]`).text();
+            console.log(`${checkboxText}`);
+            winnerA=checkboxText;  
+            lenCBWA--;
+               
+          };
+      });
+        $("input[name='uE']:checked").each(function(){
+            
+          if(lenCBUE> 0){
+            
+            let value = $(this).val();
+            let checkboxText = $(`label[for="${value}"]`).text();
+            console.log(`${checkboxText}`);
+            unforcedError=checkboxText;  
+            lenCBUE--;
+               
+          };
+        });
+        $("input[name='uEA']:checked").each(function(){
+            
+          if(lenCBUEA> 0){
+            
+            let value = $(this).val();
+            let checkboxText = $(`label[for="${value}"]`).text();
+            console.log(`${checkboxText}`);
+            unforcedErrorA=checkboxText;  
+            lenCBUEA--;
+               
+          };
+        });
+        
+      $("input[name='NetError']:checked").each(function(){
+         
+            let value = $(this).val();
+            let checkboxText = $(`label[for="${value}"]`).text();
+            console.log(`${checkboxText}`);
+            netError=checkboxText;  
+     
+      });
+
+    //opponent player
+    let fServeOP;
+    let sServeOP;
+    let winnerOP;
+    let unforcedErrorOP;
+    let netErrorOP;
+
+    var lenCBFSOP=$("input[name='fServeOP']:checked").length;
+    var lenCBSSOP=$("input[name='sServeOP']:checked").length;
+    var lenCBWOP=$("input[name='WinnerOP']:checked").length;
+    var lenCBUEOP= $("input[name='uEOP']:checked").length;
+
+     $("input[name='fServeOP']:checked").each(function(){
+            
+          if(lenCBFSOP> 0){
+            
+            let value = $(this).val();
+            let checkboxText = $(`label[for="${value}"]`).text();
+            console.log(`${checkboxText}`);
+            fServeOP=checkboxText;  
+            lenCBFSOP--;
+               
+          };
+      });
+
+      $("input[name='sServeOP']:checked").each(function(){
+            
+          if(lenCBSSOP> 0){
+            
+            let value = $(this).val();
+            let checkboxText = $(`label[for="${value}"]`).text();
+            console.log(`${checkboxText}`);
+            sServeOP=checkboxText;  
+            lenCBSSOP--;
+               
+          };
+      });
+    $("input[name='WinnerOP']:checked").each(function(){
+            
+          if(lenCBWOP> 0){
+            
+            let value = $(this).val();
+            let checkboxText = $(`label[for="${value}"]`).text();
+            console.log(`${checkboxText}`);
+            winnerOP=checkboxText;  
+            lenCBWOP--;
+               
+          };
+      });
+       $("input[name='uEOP']:checked").each(function(){
+            
+          if(lenCBUEOP> 0){
+            
+            let value = $(this).val();
+            let checkboxText = $(`label[for="${value}"]`).text();
+            console.log(`${checkboxText}`);
+            unforcedErrorOP=checkboxText;  
+            lenCBUEOP--;
+               
+          };
+      });
+      $("input[name='NetErrorOP']:checked").each(function(){
+         
+            let value = $(this).val();
+            let checkboxText = $(`label[for="${value}"]`).text();
+            console.log(`${checkboxText}`);
+            netErrorOP=checkboxText;  
+        
+          
+      });
+       var data={};
+     
+        data.btnValue=btnValue,
+        data.point=point;
+        data.pointOP=pointOP;
+        data.game=game;
+        data.games=games;
+        data.gameOP=gameOP;
+        data.set=set;
+        data.setOP=setOP;
+        data.firstServe=fServe,
+        data.WBT=WBT,
+        data.secondServe=sServe,
+        data.sPlusOne=sPO,
+        data.rPlusOne=rPO,
+        data.winner=Winner,
+        data.winnerA=winnerA,
+        data.uError=unforcedError,
+        data.uErrorA=unforcedErrorA,
+        data.netError=netError,
+        data.firstServeOP=fServeOP,
+        data.secondServeOP=sServeOP,
+        data.winnerOP=winnerOP,
+        data.uErrorOP=unforcedErrorOP,
+        data.netErrorOP=netErrorOP,
+        data.server=" "
+
+       
+      
+            $.ajax({
+                type:"POST",
+                url:'/Index/AjaxPostCall',         
+                data: JSON.stringify(data),
+                contentType:'application/json',             
+                dataType:'json',
+                success:function(data){
+
+                    if(data.set==2||data.setOP==2){
+                        $(".button").toggle();
+                    }
+                        $('html, body').animate({ scrollTop: 0 }, 0);
+                        $('.cb').each(function(){
+                            $(this).prop('checked', false);
+                        });
+                        $('.cbOp').each(function(){
+                            $(this).prop('checked', false);
+                        });
+                         $('.NE').each(function(){
+                            $(this).prop('checked', false);
+                        });
+
+                      
+                        if(data.games==1){
+                            if(data.server=="secondPlayer"){
+                               
+                                $('.form-horizontal-opponent-serve').toggle("slow");
+                                $('.form-horizontal-rpo').toggle("slow");
+                                $('.form-horizontal-serve').hide();
+                                $('.form-horizontal-spo').hide();
+                            
+                            }else if(data.server=="firstPlayer"){
+                                
+                                $('.form-horizontal-opponent-serve').hide();
+                                $('.form-horizontal-rpo').hide();
+                                $('.form-horizontal-serve').toggle("slow");
+                                $('.form-horizontal-spo').toggle("slow");
+                            }
+                            if(gCounter==6&&g2Counter==6){
+                                $('.form-horizontal-opponent-serve').toggle("slow");
+                                $('.form-horizontal-rpo').toggle("slow");
+                                $('.form-horizontal-serve').toggle("slow");
+                                $('.form-horizontal-spo').toggle("slow");
+
+                            }
+                            
+                        }
+                                          
+                    $(".form-horizontal-winner").hide();
+                    $(".form-horizontal-error").hide();
+                    $(".netError").hide();
+                   if(data.btnValue=="firstPlayer"){
+                        $('#score').text(point);
+                        $('#scoreOP').text(pointOP);
+                    }else if(data.btnValue=="secondPlayer"){
+                        $('#scoreOP').text(pointOP);
+                        $('#score').text(point);
+                        
+                    }
+                    $('.Gnumctn').text(game);
+                    $('.Gnumctn-2').text(gameOP);
+                    $('.Snumctn').text(set);
+                    $('.Snumctn-2').text(setOP);
+                },
+                failure: function(response) {  
+                    alert("error");  
+                }
+                  });     
+       
+   });
+  
+
+  
+</script>
+}

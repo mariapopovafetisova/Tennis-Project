@@ -1,0 +1,48 @@
+﻿@model Tennis.Models.LoginForm
+@{
+    ViewBag.Title = "Login";
+
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/Login.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" />
+</head>
+
+
+<div class="container">
+	<div class="screen">
+		<div class="screen__content">
+			<form class="login" method="post">
+                <h4 style="margin-left: 10px; font-weight:700; color:lightblue">SIGN IN</h4>
+				<div class="login__field">
+					<i class="login__icon fas fa-user"></i>
+					<input asp-for="Username" class="login__input" placeholder="Username">
+                    <span asp-validation-for="Username" class="text-danger"></span>
+				</div>
+				<div class="login__field">
+					<i class="login__icon fas fa-lock"></i>
+					<input asp-for="Password"  class="login__input" placeholder="Password">
+                     <span asp-validation-for="Password" class="text-danger"></span>
+				</div>
+				<button type="submit" class="button login__submit">
+					<span class="button__text">Log In</span>
+					<i class="button__icon fas fa-chevron-right"></i>
+				</button>				
+			</form>
+			<div class="social-login">
+				<h3>Don't have an account?</h3>
+				<div class="register">
+					<a href="@Url.Action("Registration", "Account")" class="register">Register</a>
+					
+				</div>
+			</div>
+		</div>
+		<div class="screen__background">
+			<span class="screen__background__shape screen__background__shape4"></span>
+			<span class="screen__background__shape screen__background__shape3"></span>		
+			<span class="screen__background__shape screen__background__shape2"></span>
+			<span class="screen__background__shape screen__background__shape1"></span>
+		</div>		
+	</div>
+</div>

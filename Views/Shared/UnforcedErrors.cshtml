@@ -1,0 +1,31 @@
+﻿<head>
+    <link rel="stylesheet" href="~/css/Winner.css" asp-append-version="true" />
+    
+</head>
+<button type="button" class="btn-close" data-dismiss="modal" aria-hidden="true">×</button> 
+<table>
+
+
+    <tr>
+        <th colspan="2" scope="colgroup" style="text-align: center; padding-top:20px ">Forehand</th> 
+        <th colspan="2" scope="colgroup" style="text-align: center;padding-top:20px ">Backhand</th>
+    </tr>
+    <tr style="background-color: lightblue;">
+        <th scope="col">Outside</th>
+        <th scope="col" style="border-color: lightblue; border-width: 0px 2px 0px 0px;">@ViewBag.ueFHO</th>
+        <th scope="col">Outside</th>
+        <th scope="col" >@ViewBag.ueBHO</th>
+    </tr>
+     <tr>
+        <th scope="col">90</th>
+        <th scope="col" style="border-color:lightblue; border-width: 0px 2px 0px 0px;">@ViewBag.ueFHN</th>
+        <th scope="col">90</th>
+        <th scope="col"> @ViewBag.ueBHN</th>
+    </tr>
+      <tr style="background-color: lightblue;">
+        <th scope="col"style="border-bottom-left-radius: 20px;">Inside</th>
+        <th scope="col" style="border-color: lightblue; border-width: 0px 2px 0px 0px;">@ViewBag.ueFHI</th>
+        <th scope="col"">Inside</th>
+        <th scope="col" style="border-bottom-right-radius: 20px;">@ViewBag.ueBHI</th>
+    </tr>
+</table>

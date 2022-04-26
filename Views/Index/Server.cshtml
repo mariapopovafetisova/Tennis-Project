@@ -1,0 +1,34 @@
+﻿@using Tennis.Models
+@model IEnumerable<MatchDetails>
+@{
+    ViewData["Title"] = "Server";
+    
+}
+<head>
+    <link rel="stylesheet" href="~/css/Server.css" />
+   
+</head>
+<body>
+<div class="bg">
+<div class=container-form>
+<form method="post">
+    <h4>Choose server: </h4>
+    <div class="server-button">
+        <div class="btn">
+@foreach (var item in Model.Reverse().Take(1)){
+<div class="player"><button name="server" class="btn-server" value="firstPlayer">@item.yourPlayer</button></div>}
+
+
+@foreach (var item in Model.Reverse().Take(1)){
+<div class="player"><button name="server" class="btn-server" value="secondPlayer">@item.opponentPlayer</button></div>}
+        </div>
+    </div>
+</form>
+</div>
+</div>
+</body>
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+   
+}
+

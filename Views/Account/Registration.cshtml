@@ -1,0 +1,63 @@
+﻿
+@model Tennis.Models.RegistrationForm
+@{
+    ViewBag.Title = "Register";
+
+}
+<head>
+    <link rel="stylesheet" href="~/css/Registration.css" asp-append-version="true" />
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" />
+</head>
+
+<div class="container">
+	<div class="screen">
+		<div class="screen__content">
+			<form class="login" method="post">
+                <h4 style="text-align:center; font-weight:700; color:lightblue">CREATE ACCOUNT</h4>
+				<div class="login__field">
+                <div class="login__field-f" style="width: 100%;margin-left: 30px;">
+					
+					<input asp-for="firstName" class="login__input-n" placeholder="First Name">
+					<input asp-for="lastName" class="login__input-n" placeholder="Last Name">
+                    <span asp-validation-for="firstName" class="text-danger" style="width: 40%; float:left;  margin-left: 20px;"></span>
+                    <span asp-validation-for="lastName" class="text-danger" style="width: 40%; float:left;  margin-left: 20px;"></span>
+				</div>
+                </div>
+			
+				<div class="login__field" style="margin-top:50px">
+					
+					<input asp-for="email" class="login__input" placeholder="Email">
+                    <span asp-validation-for="email" class="text-danger"></span>
+				</div>
+                <div class="login__field">
+					<i class="login__icon fas fa-user"></i>
+					<input asp-for="username" class="login__input" placeholder="Username">
+                    <span asp-validation-for="username" class="text-danger"></span>
+				</div>
+				<div class="login__field">
+					<i class="login__icon fas fa-lock"></i>
+					<input asp-for="password" class="login__input" placeholder="Password">
+                    <span asp-validation-for="password" class="text-danger"></span>
+				</div>
+				<div class="login__field">
+					<i class="login__icon fas fa-lock"></i>
+					<input asp-for="comparePassword" class="login__input" placeholder="Re-enter password">
+                    <span asp-validation-for="comparePassword" class="text-danger"></span>
+				</div>
+			
+				
+				<button class="button login__submit">
+					
+					<span class="button__text" style="margin:0; padding:0">Register</span>
+					<i class="button__icon fas fa-chevron-right"></i>
+				</button>				
+			</form>
+		</div>
+		<div class="screen__background">
+			<span class="screen__background__shape screen__background__shape4"></span>
+			<span class="screen__background__shape screen__background__shape3"></span>		
+			<span class="screen__background__shape screen__background__shape2"></span>
+			<span class="screen__background__shape screen__background__shape1"></span>
+		</div>		
+	</div>
+</div>
