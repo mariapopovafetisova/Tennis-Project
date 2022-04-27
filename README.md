@@ -73,24 +73,21 @@ Tennis Analytics is a desktop web application that lets users track errors made 
   2. Open the SQL file called "script" with SQL Server Managment Studio.
   3. Edit the script with your own database name on [YourDatabaseName] and execute the query.
   
+  <img src="https://user-images.githubusercontent.com/102984337/165587299-85188727-7a42-4122-bf1b-1d16714d3480.png" width="800" />
   
-  ![sql](https://user-images.githubusercontent.com/102984337/165585108-6a205eea-c995-40ae-9521-86d8784ea8a6.png)
 
 
   4. After the database has been created, open the folder again where the project was downloaded, click on the folder "src code" and open the file "Tennis.sln" with Visual Studio.
   5. If not installed, install Nuget packages referred in the requirements. To install packages, click on "Tools" at the top bar, from the menu choose "NuGet Package Manager" and click on "Manage NuGet Packages for Solution. On the search bar, look for the packages names and install.
   
-  ![nutgetpackages](https://user-images.githubusercontent.com/102984337/165585369-49b1a64f-ada0-481b-ab1e-9d296aa0a6e3.png)
+  
+  <img src="https://user-images.githubusercontent.com/102984337/165585369-49b1a64f-ada0-481b-ab1e-9d296aa0a6e3.png" width="800" />
 
   
   6. Navigate to the appsettings.json file at the end of the solution explorer. Edit the connection string to connect to your database and enter your server name where it indicates {YourServer} and your database name where it indicates {YourDataBaseName}.
- 
- 
- ![appsettings](https://user-images.githubusercontent.com/102984337/165585413-c9b5fcd2-f0d2-4233-b034-a2e4ec22f8b2.png)
-
- 
- 7. You may go back to your SQL Server and refresh your databases to ensure the Database was imported with the required tables.
-  8. Click on the IIS Express button and start using the application. 
+  <img src="https://user-images.githubusercontent.com/102984337/165585413-c9b5fcd2-f0d2-4233-b034-a2e4ec22f8b2.png" width="800" /> 
+  7. You may go back to your SQL Server and refresh your databases to ensure the Database was imported with the required tables.
+  8. Click on the IIS Express button and start using the application. </br>
   
   
   ![issexpress](https://user-images.githubusercontent.com/102984337/165585442-d47b2958-a1f5-4ba6-ab08-758c7262dac3.png)
@@ -99,10 +96,9 @@ Tennis Analytics is a desktop web application that lets users track errors made 
   # Usage
   
   <ul>
-  <li>If you desire to use the application as a guest, skip to the next step. Otherwise, register on the application. Click on Login at the navigation bar and once you are in the Login page, click on Register.  </li>
-  
-  ![sign in ](https://user-images.githubusercontent.com/102984337/165585622-b03acc57-d0ec-4eb9-93fe-ebd2f38acce5.png)
-  
+  <li>If you desire to use the application as a guest, skip to the next step. Otherwise, register on the application. Click on Login at the navigation bar and once you are in the Login page, click on Register.</br>  </li>
+ 
+   <img src="https://user-images.githubusercontent.com/102984337/165585622-b03acc57-d0ec-4eb9-93fe-ebd2f38acce5.png" width="800" />
   
   <li> Once you register you will be redirected to the Home page, where you can click the "Get Started" button.</li>
   <li>Enter the necessary match details and click on the button.</li>
@@ -113,11 +109,12 @@ Tennis Analytics is a desktop web application that lets users track errors made 
     <li>On each side of the page are two blue buttons which will expand once you hover over them. They will be used to score each point for each player.
       Click on the button for the player who scored the point. </li>
     1.  Button on the left is used to record the points for the player on the left side of the page.</br>
-    2.  Button on the right is used to record the points for the player on the right side of the page.</br>
-    ![analyze](https://user-images.githubusercontent.com/102984337/165585795-4786e5de-9e56-4a60-b278-2777de68c655.png)
-![analyze2](https://user-images.githubusercontent.com/102984337/165585809-2282a80e-4514-4897-9846-863495c828c0.png)
-
+    2.  Button on the right is used to record the points for the player on the right side of the page.</br> 
   </ul>
+  <img src="https://user-images.githubusercontent.com/102984337/165588959-e5a11841-dd7b-49fa-87a8-a08cd87dac53.png" width="500" />
+   <img src="https://user-images.githubusercontent.com/102984337/165588861-52890f04-0055-48fa-a56c-ad4d9d7e11b3.png" width="500" />
+
+
   <li>Once a player gets to 2 sets, the "Match Ended" button will appear. Click on it to get the match report.</li>
   
   ![matchended](https://user-images.githubusercontent.com/102984337/165585931-5a6c5d0f-a69e-4cfd-a717-b58ae21a94bf.png)
