@@ -3,7 +3,10 @@
 Tennis Analytics is a desktop web application that lets users track errors made point by point by the tennis players, and then rendering a match report with count of errors and percentages. The application may be used as an anonymous guest or it also gives the option to register and save all matches analyzed to its own account. 
 # Table of Contents
 <ul>
-  <li><a href="https://github.com/mariapopovafetisova/Tennis-Project/blob/master/README.md#requirements">Information</a></li>
+  <li><a href="https://github.com/mariapopovafetisova/Tennis-Project/blob/master/README.md#information" Information</a></li>
+  <li><a href="https://github.com/mariapopovafetisova/Tennis-Project/blob/master/README.md#requirements">Requirements</a></li>
+  <li><a href="https://github.com/mariapopovafetisova/Tennis-Project/blob/master/README.md#download-and-installation-source-code">Download and Installation Source Code</a></li>
+  <li><a href="https://github.com/mariapopovafetisova/Tennis-Project/blob/master/README.md#usage">Usage</a></li>
 
 </ul>
 
@@ -48,7 +51,6 @@ Tennis Analytics is a desktop web application that lets users track errors made 
 
 # Requirements 
 <ul>
-  <li>Internet connection</li>
   <li>Device with a minimum screen width of 800px</li>
   <li>Microsoft Windows OS</li>
   <li>SQL Server Managment Studio</li>
@@ -70,6 +72,10 @@ Tennis Analytics is a desktop web application that lets users track errors made 
   1. Download the project zip and extract it to a folder of your choice. 
   2. Open the SQL file called "script" with SQL Server Managment Studio.
   3. Edit the script with your own database name on [YourDatabaseName] and execute the query.
+  
+  ![sql](https://user-images.githubusercontent.com/102984337/165585108-6a205eea-c995-40ae-9521-86d8784ea8a6.png)
+
+  
   4. After the database has been created, open the folder again where the project was downloaded, click on the folder "src code" and open the file "Tennis.sln" with Visual Studio.
   5. If not installed, install Nuget packages referred in the requirements. To install packages, click on "Tools" at the top bar, from the menu choose "NuGet Package Manager" and click on "Manage NuGet Packages for Solution. On the search bar, look for the packages names and install.
   6. Navigate to the appsettings.json file at the end of the solution explorer. Edit the connection string to connect to your database and enter your server name where it indicates {YourServer} and your database name where it indicates {YourDataBaseName}.
