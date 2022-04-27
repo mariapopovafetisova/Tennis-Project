@@ -813,7 +813,9 @@ var setOP;
                 dataType:'json',
                 success:function(data){
 
-                    if(data.set==2||data.setOP==2){
+                    if(data.set==1&&data.game==6){
+                        $(".button").toggle();
+                    }
                         $(".button").toggle();
                     }
                         $('html, body').animate({ scrollTop: 0 }, 0);
