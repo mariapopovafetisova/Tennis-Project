@@ -72,33 +72,55 @@ Tennis Analytics is a desktop web application that lets users track errors made 
   1. Download the project zip and extract it to a folder of your choice. 
   2. Open the SQL file called "script" with SQL Server Managment Studio.
   3. Edit the script with your own database name on [YourDatabaseName] and execute the query.
-  
-  <img src="https://user-images.githubusercontent.com/102984337/165587299-85188727-7a42-4122-bf1b-1d16714d3480.png" width="800" />
+  <p align="center">
+  <img 
+    width="500"
+    height="300"
+    src = "https://user-images.githubusercontent.com/102984337/165587299-85188727-7a42-4122-bf1b-1d16714d3480.png" />
+  </p>
   
 
 
   4. After the database has been created, open the folder again where the project was downloaded, click on the folder "src code" and open the file "Tennis.sln" with Visual Studio.
   5. If not installed, install Nuget packages referred in the requirements. To install packages, click on "Tools" at the top bar, from the menu choose "NuGet Package Manager" and click on "Manage NuGet Packages for Solution. On the search bar, look for the packages names and install.
+   <p align="center">
+  <img 
+    width="500"
+    height="300"
+    src = "https://user-images.githubusercontent.com/102984337/165585369-49b1a64f-ada0-481b-ab1e-9d296aa0a6e3.png" />
+  </p>
   
-  
-  <img src="https://user-images.githubusercontent.com/102984337/165585369-49b1a64f-ada0-481b-ab1e-9d296aa0a6e3.png" width="800" />
 
   
   6. Navigate to the appsettings.json file at the end of the solution explorer. Edit the connection string to connect to your database and enter your server name where it indicates {YourServer} and your database name where it indicates {YourDataBaseName}.
-  <img src="https://user-images.githubusercontent.com/102984337/165585413-c9b5fcd2-f0d2-4233-b034-a2e4ec22f8b2.png" width="800" /> 
+ 
+ <p align="center">
+ <img 
+    width="500"
+    height="300"
+    src="https://user-images.githubusercontent.com/102984337/165585413-c9b5fcd2-f0d2-4233-b034-a2e4ec22f8b2.png" /> 
+  </p>
   7. You may go back to your SQL Server and refresh your databases to ensure the Database was imported with the required tables.
-  8. Click on the IIS Express button and start using the application. </br>
+  8. Click on the IIS Express button and start using the application. 
+  <p align="center">
+  <img 
+    width="500"
+    height="300"
+    src="https://user-images.githubusercontent.com/102984337/165585442-d47b2958-a1f5-4ba6-ab08-758c7262dac3.png" /> 
   
-  
-  ![issexpress](https://user-images.githubusercontent.com/102984337/165585442-d47b2958-a1f5-4ba6-ab08-758c7262dac3.png)
-
+</p>
   
   # Usage
   
   <ul>
-  <li>If you desire to use the application as a guest, skip to the next step. Otherwise, register on the application. Click on Login at the navigation bar and once you are in the Login page, click on Register.</br>  </li>
+  <li>If you desire to use the application as a guest, skip to the next step. Otherwise, register on the application. Click on Login at the navigation bar and once you are in the Login page, click on Register.</li>
  
-   <img src="https://user-images.githubusercontent.com/102984337/165585622-b03acc57-d0ec-4eb9-93fe-ebd2f38acce5.png" width="800" />
+  <p align="center">
+   <img 
+     width="500"
+     height="300"
+     src="https://user-images.githubusercontent.com/102984337/165585622-b03acc57-d0ec-4eb9-93fe-ebd2f38acce5.png" />  
+  </p>
   
   <li> Once you register you will be redirected to the Home page, where you can click the "Get Started" button.</li>
   <li>Enter the necessary match details and click on the button.</li>
@@ -111,14 +133,30 @@ Tennis Analytics is a desktop web application that lets users track errors made 
     1.  Button on the left is used to record the points for the player on the left side of the page.</br>
     2.  Button on the right is used to record the points for the player on the right side of the page.</br> 
   </ul>
-  <img src="https://user-images.githubusercontent.com/102984337/165588959-e5a11841-dd7b-49fa-87a8-a08cd87dac53.png" width="500" />
-   <img src="https://user-images.githubusercontent.com/102984337/165588861-52890f04-0055-48fa-a56c-ad4d9d7e11b3.png" width="500" />
+    <p align="center">
+     <img 
+     width="500"
+     height="300"
+     src="https://user-images.githubusercontent.com/102984337/165588959-e5a11841-dd7b-49fa-87a8-a08cd87dac53.png" />
+ </p>
+ <p align="center">
+  <img 
+       width="500"
+       height="300"
+       src="https://user-images.githubusercontent.com/102984337/165588861-52890f04-0055-48fa-a56c-ad4d9d7e11b3.png" />
+  </p>
 
 
-  <li>Once a player gets to 2 sets, the "Match Ended" button will appear. Click on it to get the match report.</li>
+  <li>Once a player gets to 2 sets, the "Match Ended" button will appear. Click on it to get the match report.</li></br>
+  <p align="center">
+  <img 
+       width="600"
+       height="300"
+       src="https://user-images.githubusercontent.com/102984337/165585931-5a6c5d0f-a69e-4cfd-a717-b58ae21a94bf.png" />
+  </p>
   
-  ![matchended](https://user-images.githubusercontent.com/102984337/165585931-5a6c5d0f-a69e-4cfd-a717-b58ae21a94bf.png)
 
-  <li>You can access your dashboard anytime you are logged in to access all the matches you recorded. </li>
+  <li>You can access your dashboard anytime you are logged in to access all the matches you recorded. </li></br>
+   
   
-![dashboard](https://user-images.githubusercontent.com/102984337/165585947-16722fc7-6c5c-40a9-8ecc-3e335000f7ff.png)
+
