@@ -100,8 +100,10 @@ Tennis Analytics is a desktop web application that lets users track errors made 
     height="300"
     src="https://user-images.githubusercontent.com/102984337/165585413-c9b5fcd2-f0d2-4233-b034-a2e4ec22f8b2.png" /> 
   </p>
-  7. You may go back to your SQL Server and refresh your databases to ensure the Database was imported with the required tables.
-  8. Click on the IIS Express button and start using the application. 
+  
+ 7. You may go back to your SQL Server and refresh your databases to ensure the Database was imported with the required tables.  
+ 
+ 8. Click on the IIS Express button and start using the application. 
   <p align="center">
   <img 
     width="500"
