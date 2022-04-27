@@ -3,7 +3,7 @@
 Tennis Analytics is a desktop web application that lets users track errors made point by point by the tennis players, and then rendering a match report with count of errors and percentages. The application may be used as an anonymous guest or it also gives the option to register and save all matches analyzed to its own account. 
 # Table of Contents
 <ul>
-  <li><a href="#Information">Information</a></li>
+  <li><a href="https://github.com/mariapopovafetisova/Tennis-Project/blob/master/README.md#requirements">Information</a></li>
 
 </ul>
 
