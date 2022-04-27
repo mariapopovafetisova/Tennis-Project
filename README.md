@@ -42,7 +42,7 @@ Tennis Analytics is a desktop web application that lets users track errors made 
 
 # Requirements 
 <ul>
-  <li>Interner connection</li>
+  <li>Internet connection</li>
   <li>Device with a minimum screen width of 800px</li>
   <li>Microsoft Windows OS</li>
   <li>SQL Server Managment Studio</li>
@@ -64,9 +64,9 @@ Tennis Analytics is a desktop web application that lets users track errors made 
   1. Download the project zip and extract it to a folder of your choice. 
   2. Open the SQL file called "script" with SQL Server Managment Studio.
   3. Edit the script with your own database name on [YourDatabaseName] and execute the query.
-  4. After the database has been created, open the folder again where the project was downloaded and open the file "TennisProject.sln" with Visual Studio.
+  4. After the database has been created, open the folder again where the project was downloaded, click on the folder "src code" and open the file "Tennis.sln" with Visual Studio.
   5. If not installed, install Nuget packages referred in the requirements. To install packages, click on "Tools" at the top bar, from the menu choose "NuGet Package Manager" and click on "Manage NuGet Packages for Solution. On the search bar, look for the packages names and install.
-  6. Navigate to the appsettings.json file at the end of the solution explorer. Edit the connection string to connect to your database and enter your Server name where it indicates {YourServer} and your database name where it indicates {YourDataBaseName}.
+  6. Navigate to the appsettings.json file at the end of the solution explorer. Edit the connection string to connect to your database and enter your server name where it indicates {YourServer} and your database name where it indicates {YourDataBaseName}.
   7. You may go back to your SQL Server and refresh your databases to ensure the Database was imported with the required tables.
   8. Click on the IIS Express button and start using the application. 
   
