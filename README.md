@@ -42,7 +42,7 @@ Tennis Analytics is a desktop web application that lets users track errors made 
 <h4>Scoring</h4>
  Scoring is based on college tennis scoring rules. Points are played with NO advantage. Up to six games. In case of tie in games(6-6), the scoring will automatically  convert to tie break points(0-7), with a difference of two points in case of tie in tiebreak points (6-6).</br>
  Sets are played to the best of three (2-0), (2-1).</br>
- To get the report, you will click the "Match Ended" button, which will only appear when one player wins 2 sets, not any other time during the match.</br> 
+ To get the report, you will click the "Match Ended" button, which will only appears when one player wins 2 sets, not any other time during the match.</br> 
  In the case that the match is played up to 5 sets for any reason, you may continue recording errors as the application won't render the reports until you click the "Match Ended" button. 
 <h4>Errors options display</h4>
  The errors are displayed as checkboxes. The application will ask for the player who will start serving the match. Depending on this choice, the application will render the specific errors for each player. For example, if Player 1 is serving, the application will display the Serve checkboxes and Serve+1 checkboxes, but not the Return+1 as the player is not returning. Same pattern would be for Player 2, who won't have the option to check for Serve errors. </br>
